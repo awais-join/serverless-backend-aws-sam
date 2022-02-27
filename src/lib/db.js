@@ -20,12 +20,8 @@ module.exports.createField = async (field) => {
 
 module.exports.getAllForms = async () => {
   try {
-    const { Form, Field } = await connectToDatabase();
-    return await Form.findAll({
-      include: [
-        { model: Field, as: 'fields' }
-      ]
-    });
+    const { Form } = await connectToDatabase();
+    return await Form.findAll();
   } catch (error) {
     console.log('Exception occurred in getAllForms in db.js: ', error);
   }
