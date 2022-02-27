@@ -19,7 +19,7 @@ phases:
       - sam build
   post_build:
     commands:
-      - sam package --template-file template.yaml --s3-bucket ${S3_BUCKET} --output-template-file packaged.yaml
+      - sam package --template-file template.yaml --s3-bucket ${S3_BUCKET} --output-template-file packaged.yaml --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND
 artifacts:
   type: zip
   files:
