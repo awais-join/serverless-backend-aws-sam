@@ -41,14 +41,14 @@ Resources:
   getAllFormsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/handlers/get-all-forms.getAllFormsHandler
+      CodeUri: src/
+      Handler: handlers/get-all-forms.getAllFormsHandler
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all forms from a mysql database.
-      CodeUri: .
       Layers:
-        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-lambda-layer:1
+        - !Ref IRBackendNodeLayers
       Events:
         Api:
           Type: Api
@@ -62,14 +62,14 @@ Resources:
   getAllFieldsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/handlers/get-all-fields.getAllFieldsHandler
+      CodeUri: src/
+      Handler: handlers/get-all-fields.getAllFieldsHandler
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all fields from a mysql database.
-      CodeUri: .
       Layers:
-        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-lambda-layer:1
+        - !Ref IRBackendNodeLayers
       Events:
         Api:
           Type: Api
@@ -83,14 +83,14 @@ Resources:
   createFormFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/handlers/create-form.createFormHandler
+      CodeUri: src/
+      Handler: handlers/create-form.createFormHandler
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to create form.
-      CodeUri: .
       Layers:
-        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-lambda-layer:1
+        - !Ref IRBackendNodeLayers
       Events:
         Api:
           Type: Api
@@ -104,14 +104,14 @@ Resources:
   createFieldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: src/handlers/create-field.createFieldHandler
+      CodeUri: src/
+      Handler: handlers/create-field.createFieldHandler
       Runtime: nodejs12.x
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to create field.
-      CodeUri: .
       Layers:
-        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-lambda-layer:1
+        - !Ref IRBackendNodeLayers
       Events:
         Api:
           Type: Api
@@ -122,3 +122,13 @@ Resources:
         Fn::GetAtt:
           - "VPCLambdaRole"
           - "Arn"
+  IRBackendNodeLayers:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: serverless-nodejs-dependencies
+      Description: Dependencies for ir backend
+      ContentUri: dependencies/
+      CompatibleRuntimes:
+        - nodejs12.x
+      LicenseInfo: 'MIT'
+      RetentionPolicy: Retain
