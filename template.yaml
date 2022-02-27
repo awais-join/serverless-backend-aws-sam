@@ -47,6 +47,8 @@ Resources:
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all forms from a mysql database.
       CodeUri: .
+      Layers:
+        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-lambda-layer:1
       Events:
         Api:
           Type: Api
@@ -66,6 +68,8 @@ Resources:
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all fields from a mysql database.
       CodeUri: .
+      Layers:
+        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-lambda-layer:1
       Events:
         Api:
           Type: Api
@@ -85,6 +89,8 @@ Resources:
       Timeout: 100
       Description: A simple example includes a HTTP get method to create form.
       CodeUri: .
+      Layers:
+        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-lambda-layer:1
       Events:
         Api:
           Type: Api
@@ -104,6 +110,8 @@ Resources:
       Timeout: 100
       Description: A simple example includes a HTTP get method to create field.
       CodeUri: .
+      Layers:
+        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-lambda-layer:1
       Events:
         Api:
           Type: Api
