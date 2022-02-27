@@ -46,7 +46,7 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all forms from a mysql database.
-      CodeUri: src/handlers/
+      CodeUri: .
       Events:
         Api:
           Type: Api
@@ -65,7 +65,7 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all fields from a mysql database.
-      CodeUri: src/handlers/
+      CodeUri: .
       Events:
         Api:
           Type: Api
@@ -84,7 +84,7 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to create form.
-      CodeUri: src/handlers/
+      CodeUri: .
       Events:
         Api:
           Type: Api
@@ -103,7 +103,7 @@ Resources:
       MemorySize: 128
       Timeout: 100
       Description: A simple example includes a HTTP get method to create field.
-      CodeUri: src/handlers/
+      CodeUri: .
       Events:
         Api:
           Type: Api
