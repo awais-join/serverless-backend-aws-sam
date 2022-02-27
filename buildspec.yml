@@ -14,12 +14,12 @@ phases:
 #      - rm -rf ./__tests__
 #      # Remove all dependencies not needed for the Lambda deployment package (the packages from devDependencies in package.json)
 #      - npm prune --production
-  build:
-    commands:
-      - sam build
+#  build:
+#    commands:
+#      - sam build
   post_build:
     commands:
-      - sam package --template-file template.yaml --s3-bucket ${S3_BUCKET} --output-template-file packaged.yaml
+      - sam deploy
 artifacts:
   type: zip
   files:
