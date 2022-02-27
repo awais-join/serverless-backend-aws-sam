@@ -1,0 +1,113 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ir-backend
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  VPCLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+            - lambda.amazonaws.com
+          Action:
+          - sts:AssumeRole
+      Path: /
+      Policies:
+      - PolicyName: VPCLambdaPolicy
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Action:
+            - rds:*
+            Resource: '*'
+          - Effect: Allow
+            Action:
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+            Resource: arn:aws:logs:*:*:*
+  getAllFormsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/get-all-forms.getAllFormsHandler
+      Runtime: nodejs12.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP get method to get all forms from
+        a mysql database.
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /forms
+            Method: GET
+      Role:
+        Fn::GetAtt:
+        - VPCLambdaRole
+        - Arn
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-y0suvc2gce0k/751292a4b279de69c5f1012875105201
+  getAllFieldsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/get-all-fields.getAllFieldsHandler
+      Runtime: nodejs12.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP get method to get all fields from
+        a mysql database.
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /fields/{formId}
+            Method: GET
+      Role:
+        Fn::GetAtt:
+        - VPCLambdaRole
+        - Arn
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-y0suvc2gce0k/751292a4b279de69c5f1012875105201
+  createFormFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/create-form.createFormHandler
+      Runtime: nodejs12.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP get method to create form.
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /form
+            Method: POST
+      Role:
+        Fn::GetAtt:
+        - VPCLambdaRole
+        - Arn
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-y0suvc2gce0k/751292a4b279de69c5f1012875105201
+  createFieldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/create-field.createFieldHandler
+      Runtime: nodejs12.x
+      MemorySize: 128
+      Timeout: 100
+      Description: A simple example includes a HTTP get method to create field.
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /field
+            Method: POST
+      Role:
+        Fn::GetAtt:
+        - VPCLambdaRole
+        - Arn
+      CodeUri: s3://aws-sam-cli-managed-default-samclisourcebucket-y0suvc2gce0k/751292a4b279de69c5f1012875105201
