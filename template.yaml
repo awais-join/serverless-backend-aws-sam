@@ -48,7 +48,7 @@ Resources:
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all forms from a mysql database.
       Layers:
-        - !Ref IRBackendNodeLayers
+        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-nodejs-dependencies:4
       Events:
         Api:
           Type: Api
@@ -69,7 +69,7 @@ Resources:
       Timeout: 100
       Description: A simple example includes a HTTP get method to get all fields from a mysql database.
       Layers:
-        - !Ref IRBackendNodeLayers
+        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-nodejs-dependencies:4
       Events:
         Api:
           Type: Api
@@ -90,7 +90,7 @@ Resources:
       Timeout: 100
       Description: A simple example includes a HTTP get method to create form.
       Layers:
-        - !Ref IRBackendNodeLayers
+        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-nodejs-dependencies:4
       Events:
         Api:
           Type: Api
@@ -111,7 +111,7 @@ Resources:
       Timeout: 100
       Description: A simple example includes a HTTP get method to create field.
       Layers:
-        - !Ref IRBackendNodeLayers
+        - arn:aws:lambda:us-east-1:404811581000:layer:serverless-nodejs-dependencies:4
       Events:
         Api:
           Type: Api
@@ -122,13 +122,13 @@ Resources:
         Fn::GetAtt:
           - "VPCLambdaRole"
           - "Arn"
-  IRBackendNodeLayers:
-    Type: AWS::Serverless::LayerVersion
-    Properties:
-      LayerName: serverless-nodejs-dependencies
-      Description: Dependencies for ir backend
-      ContentUri: dependencies/
-      CompatibleRuntimes:
-        - nodejs12.x
-      LicenseInfo: 'MIT'
-      RetentionPolicy: Retain
+#  IRBackendNodeLayers:
+#    Type: AWS::Serverless::LayerVersion
+#    Properties:
+#      LayerName: serverless-nodejs-dependencies
+#      Description: Dependencies for ir backend
+#      ContentUri: dependencies/
+#      CompatibleRuntimes:
+#        - nodejs12.x
+#      LicenseInfo: 'MIT'
+#      RetentionPolicy: Retain
