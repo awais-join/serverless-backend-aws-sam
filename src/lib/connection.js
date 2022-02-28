@@ -7,7 +7,7 @@ const IRFormFieldsModel = require("../models/IRFormFields");
 const sequelize = new Sequelize.Sequelize(
   "irdb",
   "master",
-  "password", {
+  "jfWlja8wxjPx82Rq2", {
     dialect: 'mysql',
     host: "ir-database.ck4jmqmlcbkm.us-east-1.rds.amazonaws.com",
     port: 3306,
@@ -22,7 +22,7 @@ const sequelize = new Sequelize.Sequelize(
 const Form = IRFormsModel(sequelize);
 const Field = IRFormFieldsModel(sequelize);
 
-Form.hasMany(Field, { foreignKey: 'form_id' })
+Form.hasMany(Field, { foreignKey: 'formId' })
 
 const Models = {Form, Field}
 

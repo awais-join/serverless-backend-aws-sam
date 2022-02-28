@@ -1,23 +1,23 @@
 const {DataTypes} = require("sequelize");
 
 module.exports = (sequelize) => {
-  return sequelize.define("ir_form_fields", {
+  return sequelize.define("IrFormFields", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    field_type: {
+    fieldType: {
       type: DataTypes.STRING,
-      field: 'field_type',
+      field: 'fieldType',
     },
-    field_title: {
+    fieldTitle: {
       type: DataTypes.STRING,
-      field: 'field_title',
+      field: 'fieldTitle',
     },
-    field_order: {
+    fieldOrder: {
       type: DataTypes.INTEGER,
-      field: 'field_order',
+      field: 'fieldOrder',
     }
   }, {
     freezeTableName: true

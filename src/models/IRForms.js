@@ -1,7 +1,7 @@
 const {DataTypes} = require("sequelize");
 
 module.exports = (sequelize) => {
-  return sequelize.define("ir_forms", {
+  return sequelize.define("IrForms", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -9,11 +9,11 @@ module.exports = (sequelize) => {
     },
     project_id: {
       type: DataTypes.INTEGER,
-      field: 'project_id',
+      field: 'projectId',
     },
     form_title: {
       type: DataTypes.STRING,
-      field: 'form_title',
+      field: 'formTitle',
     }
   }, {
     freezeTableName: true
