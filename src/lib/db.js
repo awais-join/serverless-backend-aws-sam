@@ -30,7 +30,7 @@ module.exports.getAllForms = async () => {
 module.exports.getAllFields = async (formId) => {
   try {
     const {Field} = await connectToDatabase();
-    return await Field.findAll({where: {form_id: formId}});;
+    return await Field.findAll({where: {formId: formId}});;
   } catch (error) {
     console.log('Exception occurred in getAllFields in db.js: ', error);
   }
