@@ -3,7 +3,7 @@ version = 0.1
 [default.deploy]
 [default.deploy.parameters]
 stack_name = "ir-sam-app"
-s3_bucket = "ir-sam-cli-managed-default-samclisourcebucket-19ok8vc9h95vh"
+s3_bucket = "s3-ir-sam-app"
 s3_prefix = "ir-sam-app"
 region = "us-west-1"
 confirm_changeset = true

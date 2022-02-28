@@ -7,11 +7,11 @@ module.exports = (sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    project_id: {
+    projectId: {
       type: DataTypes.INTEGER,
       field: 'projectId',
     },
-    form_title: {
+    formTitle: {
       type: DataTypes.STRING,
       field: 'formTitle',
     }
