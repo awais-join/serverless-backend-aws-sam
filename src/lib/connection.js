@@ -5,11 +5,11 @@ const IRFormFieldsModel = require("../models/IRFormFields");
 
 
 const sequelize = new Sequelize.Sequelize(
-  "irdb",
-  "iradmin",
-  "jfWlja8wxjPx82Rq2", {
+  "******",
+  "******",
+  "******", {
     dialect: 'mysql',
-    host: "ir-db.cmsqsmmvpmrh.us-west-1.rds.amazonaws.com",
+    host: "******",
     port: 3306,
     pool: {
       max: 5,
